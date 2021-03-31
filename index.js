@@ -1,28 +1,13 @@
 import express from "express";
 import path from "path";
+import members from "./Members.js";
+
+import logger from "./middleware/logger.js";
 
 const app = express();
 
-const members = [
-  {
-    id: 1,
-    name: "ayman omer ",
-    email: "ayman@ayman.com",
-    status: "inactive",
-  },
-  {
-    id: 2,
-    name: "shafee ahmed",
-    email: "shfee@shfee.com",
-    status: "inactive",
-  },
-  {
-    id: 1,
-    name: "jahzeal isreal ",
-    email: "jahzeal@jahzeal.com",
-    status: "inactive",
-  },
-];
+app.use(logger);
+//// this route get all members
 
 app.get("/api/members", (req, res) => {
   res.json(members);
