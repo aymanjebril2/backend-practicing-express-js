@@ -1,5 +1,6 @@
 import express from "express";
 import members from "../../Members.js";
+import { v4 } from "uuid";
 
 const router = express.Router();
 
@@ -21,6 +22,21 @@ router.get("/:id", (req, res) => {
   } else {
     res.status(400).json({ msg: `No members of id number ${req.params.id}` });
   }
+});
+
+//// Create Membres
+router.post("/", (req, res) => {
+  const newMember = {
+    id: v4(),
+    name: req.body.name,
+    email: req.body.email,
+    status: "active",
+  };
+  if (!newMember.name || !newMember.email) {
+    return res.status(400).json({ msg: "please include email and name " });
+  }
+  members.push(newMember);
+  res.json(members);
 });
 
 export default router;
