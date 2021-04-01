@@ -12,7 +12,7 @@ const members = [
     status: "inactive",
   },
   {
-    id: 1,
+    id: 3,
     name: "jahzeal isreal ",
     email: "jahzeal@jahzeal.com",
     status: "inactive",
